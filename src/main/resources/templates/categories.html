@@ -48,22 +48,22 @@
         <!--
             Repeat the div element for each object in the 'categories'
             collection of the model map. Each object in the loop
-            should be named 'category'
+            should be named 'Category'
         -->
-        <div class="col s12 l4">
+        <div class="col s12 l4" th:each="category : ${categories}">
             <div class="card">
                 <div class="card-content">
                     <div class="card-title">
                         <!--
                             Set the href attribute of the a tag to be the URI to
-                            a specific category according to the category's id.
-                            For example, /category/1 or /category/2
+                            a specific Category according to the Category's id.
+                            For example, /Category/1 or /Category/2
 
-                            Then, set the text between the a tags to be the category name,
-                            coming from the 'name' field of the 'category' object
+                            Then, set the text between the a tags to be the Category name,
+                            coming from the 'name' field of the 'Category' object
                             in the model map
                         -->
-                        <a>Category Name</a>
+                        <a th:href="@{'/category/' + ${category.id}}" th:text = "${category.name}">Category Name</a>
                     </div>
                 </div>
             </div>
